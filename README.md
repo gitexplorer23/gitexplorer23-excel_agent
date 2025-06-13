@@ -1,6 +1,14 @@
 # Excel → PostgreSQL Sync Utility
 
-Automate exporting Excel sheets to CSV and upserting them into PostgreSQL, with audit timestamps and true change detection.
+Automate the export of Excel sheets to CSV and upsert them into PostgreSQL with audit timestamps and true change detection—no manual table prep or setup needed.
+
+Simply download the repo, install the requirements, and run the script. It will:
+- Automatically create the sample_test_data schema in PostgreSQL
+- Generate tables based on Excel tab names
+- Infer column types (e.g., varchar, int, etc.) from the original data
+- Include audit columns for tracking insert/update timestamps
+
+Fast, clean, and ready to use for data pipelines or analytics.
 
 ---
 
@@ -20,7 +28,7 @@ Automate exporting Excel sheets to CSV and upserting them into PostgreSQL, with 
 1. **Clone & enter**
 
    ```bash
-   git clone https://github.com/youruser/your-repo.git
+   git clone https://github.com/gitexplorer23/gitexplorer23-excel_agent.git
    cd your-repo
    ```
 
@@ -29,34 +37,34 @@ Automate exporting Excel sheets to CSV and upserting them into PostgreSQL, with 
    ```bash
    python -m venv .venv
    # Windows
-   .venv\Scripts\activate
+   .venv/Scripts/Activate
    # macOS/Linux
    source .venv/bin/activate
    ```
 
 3. **Install deps**
 
-   ```bash
+   ```
    pip install -r requirements.txt
    ```
 
 4. **Create `.env`** (at project root)
 
-   ```ini
+   ```
    EXCEL_FILE_PATH=C:/path/to/your/file.xlsx
    SHEET_NAMES=test_data,test_data2
    PK_COLUMN=ID
-   DB_USER=postgres
-   DB_PASSWORD=secret
+   DB_USER=YourUserName
+   DB_PASSWORD=Secret
    DB_HOST=localhost
-   DB_PORT=5432
+   DB_PORT=YourPort
    DB_NAME=my_database
    ```
 
 5. **Run the sync**
 
-   ```bash
-   python excel_postgres_sync.py
+   ```
+   python excel_postgress_integrationV1.2_baseline.py
    ```
 
 ---
@@ -65,7 +73,7 @@ Automate exporting Excel sheets to CSV and upserting them into PostgreSQL, with 
 
 ```
 .
-├── excel_postgres_sync.py    # Main script
+├── excel_postgress_integrationV1.2_baseline.py    # Main script
 ├── requirements.txt
 ├── .env                      # Your environment settings (git-ignored)
 ├── .gitignore                # Git ignore rules

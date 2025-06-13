@@ -93,10 +93,7 @@ CSV/
 
 # IDE/project settings
 .vscode/
-.idea/
 
-# User-specific or personal work
-personal_area/
 
 # OS-specific files
 .DS_Store
